@@ -1,0 +1,28 @@
+{
+  "name": "node-genetic-algorithm",
+  "version": "0.0.0",
+  "description": "A node package implementation of a Genetic Algorithm in JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maael/node-genetic-algorithm.git"
+  },
+  "keywords": [
+    "genetic",
+    "algorithm",
+    "evolutionary"
+  ],
+  "author": "Matthew Elphick <mae.me.uk@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maael/node-genetic-algorithm/issues"
+  },
+  "homepage": "https://github.com/maael/node-genetic-algorithm",
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "mocha": "^2.2.1"
+  }
+}
