@@ -1,6 +1,7 @@
 var genetic = require('..'),
     chai = require('chai'),
-    should = chai.should();
+    should = chai.should(),
+    fs = require('fs');
 
 describe('node-genetic-algorithm', function() {
     describe('z = sin(2x)*x + sin(x+y)*y, in [-pi,6*pi]', function() {
@@ -9,7 +10,12 @@ describe('node-genetic-algorithm', function() {
             var solution = genetic(function(x, y){
                 return (Math.sin(2 * x) * x + Math.sin(x + y) * y)
             }, [-Math.PI, 6 * Math.PI], {
-                parameters: ['x', 'y']
+                parameters: ['x', 'y'],
+                midAlgorithmCall: function(orderedPopulation) {
+                    line = orderedPopulation[0].values[0] + ',' + orderedPopulation[0].values[1] + ',' + orderedPopulation[0].fitness + '\n';
+                    fs.appendFile('sin.csv',line,function(err){
+                    if(err) { throw err; }});
+                }
             });
             console.log(solution);
         });
@@ -24,7 +30,12 @@ describe('node-genetic-algorithm', function() {
                 }
                 return sum;
             }, [-100, 100], {
-                parameters: ['x']
+                parameters: ['x'],
+                midAlgorithmCall: function(orderedPopulation) {
+                    line = orderedPopulation[0].values[0] + ',' + ',' + orderedPopulation[0].fitness + '\n';
+                    fs.appendFile('sum.csv',line,function(err){
+                    if(err) { throw err; }});
+                }
             });
             console.log(solution);
         });
